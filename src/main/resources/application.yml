@@ -1,0 +1,42 @@
+micronaut:
+  application:
+    name: micronaut-test-issue-reproducer
+
+logging:
+  level:
+    com:
+      example: info
+
+datasources:
+  foo:
+    url: 'jdbc:h2:mem:foo'
+    username: 'sa'
+    password: ''
+    driver-class-name: org.h2.Driver
+    maximum-pool-size: 2
+  bar:
+    url: 'jdbc:h2:mem:bar'
+    username: 'sa'
+    password: ''
+    driver-class-name: org.h2.Driver
+    maximum-pool-size: 2
+
+jpa:
+  foo:
+    packages-to-scan:
+      - 'com.example.model.foo'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        hbm2ddl:
+          auto: update
+          show_sql: true
+  bar:
+    packages-to-scan:
+      - 'com.example.model.bar'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        hbm2ddl:
+          auto: update
+          show_sql: true
